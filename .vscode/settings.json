@@ -1,0 +1,5 @@
+{  
+	"python.pythonPath": "C:\\Users\\zaffa\\.virtualenvs\\9-14-20-uACxnXey\\Scripts\\python.exe",
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask_sqlalchemy", "pylint_flask"]
+}
+
