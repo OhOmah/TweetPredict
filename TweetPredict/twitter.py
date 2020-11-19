@@ -13,6 +13,7 @@ TWITTER_AUTH = tweepy.OAuthHandler(
 
 TWITTER = tweepy.API(TWITTER_AUTH)
 BASILICA = basilica.Connection('44877c0c-8083-3988-133a-b0062767dc96')
+
 def add_or_update_user(username):
     '''Add or update a use and their tweets, etc, error if user doesn't exist.'''
     try:
@@ -27,7 +28,7 @@ def add_or_update_user(username):
             tweet_mode='extended', since_id=db_user.newest_tweet_id)
         
         if tweets:
-            db_user.newest_tweet_id= tweets[0].id
+            db_user.newest_tweet_id = tweets[0].id
         for tweet in tweets:
             embedding = BASILICA.embed_sentence(tweet.full_text,
                                                 model='twitter')

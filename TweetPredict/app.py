@@ -62,4 +62,4 @@ def create_app():
         return render_template('base.html', users=User.query.all(), 
                                 title = 'Database Updated')
     
-    return app 
+    return app

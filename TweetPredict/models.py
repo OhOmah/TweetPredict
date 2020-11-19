@@ -9,8 +9,9 @@ class User(db.Model):
     name = db.Column(db.String(15), nullable=False)
     # Tweet IDs are odrdinal ints, so can be used to fetch only more recent
     newest_tweet_id = db.Column(db.BigInteger)
+    
     def __repr__(self):
-        return 'User {}'.format(self.name)
+        return '[User {}]'.format(self.name)
 
 class Tweet(db.Model):
     ''' Tweets and their embeddings from basilica.'''
@@ -20,7 +21,7 @@ class Tweet(db.Model):
     user_id = db.Column(db.BigInteger, db.ForeignKey('user.id'), 
                         nullable=False)
     user = db.relationship('User', backref=db.backref('tweets', 
-                            lazy=True))
+    lazy=True))
 
     def __repr__(self):
         return '[Tweet {}]'.format(self.text)
